@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Interactive Resume</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/layout.css">
+   <link rel="stylesheet" href="css/media-queries.css">    
+
+   <!-- Script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angularControlFile.js"></script>
+
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="faviconAlen.png" >
+
+</head>
+
+<body ng-app="intResume" >
+<div ng-controller="Resume">
+	<div id="preloader">      
+      <div id="status">
+         <img src="images/preloader.gif" height="64" width="64" alt="">
+      </div>
+   </div>
+
+   <!-- Intro Section
+   ================================================== -->
+   <section id="intro">
+
+   	<header class="row">	 
+
+
+		   <nav id="nav-wrap" style="position:fixed;">
+
+		      <a class="menu-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+			   <a class="menu-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+		      <ul id="nav" class="nav">
+		         <li class="current">
+		         <a class="smoothscroll" href="#intro">Home</a></li>
+		         <li><a class="smoothscroll" href="#about">Profile</a></li>	
+		         <li><a class="smoothscroll" href="#education">Education</a></li>
+		         <li><a class="smoothscroll" href="#exp">Experience</a></li>		         
+		         <li><a class="smoothscroll" href="#skill">Skill set</a></li>		
+			      <li><a class="smoothscroll" href="#location">Contact</a></li>
+		      </ul> <!-- end #nav -->
+
+		   </nav> <!-- end #nav-wrap --> 	        
+
+   	</header> <!-- Header End -->   	
+
+   	<div  id="main" class="row">
+
+	   	<div class="twelve columns">
+	   			
+	   		<h1>{{UserModel.profileName}}</h1>
+<div class="twelve columns" style="border-bottom:1px solid white;">&nbsp</div> 
+<div class="twelve columns">&nbsp</div> 
+<h2>Interactive resume</h2>
+         </div> 
+
+      </div> <!-- main end -->    	
+
+   </section> <!-- end intro section -->
+
+
+   <!-- About Section
+   ================================================== -->
+   <section id="about" style="background-color:#F3EFE0;">
+
+      <div class="row section-header">
+
+      	<div class="twelve columns">	
+
+      		<div class="icon-wrap">
+            	<i class="fa fa-user"></i>
+         	</div>
+
+	         <h1 style="color:#22A39F;font-size: 42px;">Profile</h1>
+	         <p class="lead" style="border-top: 1px solid grey; font-size:26px;padding-top: 2%;">Software Developer
+
+         </div>
+
+      </div> <!-- end section-header -->             	
+
+      <div class="row section-content">
+				
+			<div class="four columns">
+		      <h3>About Me:</h3>
+		      <p>{{UserModel.profileAbout}}</p>
+		      
+	      </div>
+<div class="four columns" style="text-align:center">
+	<div>
+		      <img src={{UserModel.profileImage}} height="230" width="230" style="border: 1px solid grey;
+    border-radius: 50%;" alt="">
+		  </div>
+	      </div>
+	  <div class="four columns">
+		      <h3>Name:</h3>
+		      <p>{{UserModel.profileName}}</p>
+		      <h3>Age:</h3>
+		       <p>{{UserModel.profileAge}} years</p>
+		       <h3>Location:</h3>
+		       <p>{{UserModel.profileLocation}}</p>
+	      </div>            
+      </div> <!-- end section-content -->  
+   </section> <!-- About Section End-->    
+
+
+ <!-- Education Section
+   ================================================== -->
+   <section id="education" style="background-color:#E0DBDB">
+
+      <div class="row section-header">
+
+      	<div class="twelve columns">	
+
+      		<div class="icon-wrap">
+            	<i class="fa fa-book"></i>
+         	</div>
+
+	         <h1 style="color:#22A39F;font-size: 42px;">Education</h1>
+             <p class="lead" style="border-top: 1px solid grey; font-size:26px;padding-top: 2%;">{{UserModel.eduTitle}}</p>
+
+         </div>
+
+      </div> <!-- end section-header -->             	
+
+      <div class="row section-content" ng-repeat="education in UserModel.eduGlobal">	
+			<div class="five columns">
+		      <h3>{{education.school}}</h3>
+		      <p>{{education.date}}</p>
+	      </div>
+	      <div class="seven columns">
+		      <h3>{{education.diploma}}</h3>
+		      <p>{{education.description}}</p>
+		       <span class="experience-details" style="color:#22A39F">
+					<span class="location">
+						<i class="fa fa-location-arrow"></i>
+						{{education.city}}</span>					
+					<span class="seperator">|</span>
+					<span class="link">
+						<i class="fa fa-link" style="color:#22A39F"></i>
+						<a style="color:#22A39F" href={{education.web}} target="_blank">{{education.web}}</a>
+					</span>						
+				</span>
+	      </div> 
+	      <div class="twelve columns">&nbsp</div>
+	      <div class="twelve columns">&nbsp</div>  
+      </div> <!-- end section-content -->  
+   </section> <!-- About Section End-->    
+
+   <!-- Experience Section
+   ================================================== -->
+   <section id="exp" style="background-color:#F3EFE0">
+
+      <div class="row section-header">
+
+      	<div class="twelve columns">	
+
+      		<div class="icon-wrap">
+            	<i class="fa fa-briefcase"></i>
+         	</div>
+
+	         <h1 style="color:#22A39F;font-size: 42px;">Experience</h1>
+             <p class="lead" style="border-top: 1px solid grey; font-size:26px;padding-top: 2%;">{{UserModel.expTitle}}</p>
+
+         </div>
+
+      </div> <!-- end section-header -->             	
+
+     <div class="row section-content" ng-repeat="exp in UserModel.expGlobal">
+				
+			<div class="five columns">
+		      <h3>{{exp.company}}</h3>
+
+		      <p>{{exp.date}}</p>
+	      </div>
+
+	      <div class="seven columns">
+		      <h3>{{exp.title}}</h3>
+
+		      <p>{{exp.description}}</p>
+		      <span class="experience-details" style="color:#22A39F">
+					<span class="location">
+						<i class="fa fa-location-arrow" style="color:#22A39F"></i>
+						{{exp.city}}				</span>
+					
+										
+					<span class="seperator">|</span>
+					<span class="link">
+						<i class="fa fa-link" style="color:#22A39F"></i>
+						<a style="color:#22A39F" href={{exp.web}} target="_blank">{{exp.web}}</a>
+					</span>
+					
+										
+				</span>
+	      </div> 
+	      <div class="twelve columns">&nbsp</div>
+	      <div class="twelve columns">&nbsp</div>              
+
+      </div> <!-- end section-content -->  
+   </section> <!-- About Section End-->    
+
+
+<!-- Skill Set Section
+   ================================================== -->
+   <section id="skill" style="background-color:#E0DBDB">
+
+      <div class="row section-header">
+
+      	<div class="twelve columns">	
+
+      		<div class="icon-wrap">
+            	<i class="fa fa-cogs"></i>
+         	</div>
+
+	         <h1 style="color:#22A39F;font-size: 42px;">Skills</h1>
+            <p class="lead" style="border-top: 1px solid grey; font-size:26px;padding-top: 2%;">Angular Front-End Developer</p>
+
+         </div>
+
+      </div> <!-- end section-header -->             	
+
+      <div class="row section-content">
+
+      	<h2>Skills</h2>
+			
+			<div class="six columns row test" style="margin:0" ng-repeat="element in UserModel.skillSet">
+				<div class="twelve row">
+				<span class="seven columns starsAndSkills">{{element.skill}}</span>
+				<span id="appendStars" class="five columns starsAndSkills" ng-model='data'>
+					{{element.skillStar}}
+</span>
+</div>
+	      </div>
+		<div class="twelve columns">&nbsp</div>
+		<div class="twelve columns" style="border-top: 1px solid #D4C7C7;">&nbsp</div>
+
+      </div> <!-- end section-content -->  
+
+		
+
+      <div class="row section-content">
+				<h2>Tools</h2>
+
+				<div class="six columns row test" style="margin:0">
+				<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		     <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+			<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		      <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+			<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		      <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+	      </div>
+
+	      <div class="six columns row test" style="margin:0">
+				<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		     <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+			<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		      <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+			<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		      <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+	      </div>
+
+		<div class="twelve columns">&nbsp</div>
+		<div class="twelve columns" style="border-top: 1px solid #D4C7C7;">&nbsp</div>
+
+      </div> <!-- end section-content -->  
+
+
+
+      <div class="row section-content">
+				
+				<h2>Language</h2>
+				<div class="six columns row test" style="margin:0">
+				<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		     <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+			<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		      <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+			<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		      <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+	      </div>
+
+	      <div class="six columns row test" style="margin:0">
+				<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		     <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+			<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		      <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+			<div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+		      <div class="twelve row">
+				<span class="seven columns starsAndSkills">Sed ut</span>
+				<span class="five columns starsAndSkills">
+					<i class="fa fa-star" style="color:#22A39F"></i>
+				<i class="fa fa-star" style="color:#22A39F"></i>
+			<i class="fa fa-star" style="color:#22A39F"></i>
+		<i class="fa fa-star" style="color:#22A39F"></i>
+	<i class="fa fa-star" style="color:#22A39F"></i>
+</span>
+</div>
+	      </div>
+
+		<div class="twelve columns">&nbsp</div>
+		<div class="twelve columns" style="border-top: 1px solid #D4C7C7;">&nbsp</div>
+
+      </div> <!-- end section-content -->  
+
+      </div> <!-- end section-content -->  
+   </section> <!-- About Section End-->    
+
+
+   <!-- Contact Section
+   ================================================== -->
+	<section id="location" style="background-color:#1F1F1F">
+
+<div class="row" style="background-color:#1F1F1F">	
+	<div class="twelve columns">&nbsp</div>
+	<div class="twelve columns">&nbsp</div>
+	<div class="twelve columns" style="text-align:center; border-bottom:1 px solid grey;">
+	<h1 style="color:grey;font-size: 42px;">Contact</h1>
+	</div>
+</div>
+
+		<div class="contacts">		
+			
+			<div class="row contact-details">		           		         
+
+			   <div class="columns">
+
+				   <h3><i class="fa fa-skype"></i>Skype</h3>
+				   <p>lemon.lemon<br>
+					</p>
+
+			   </div> 
+
+			   <div class="columns">
+
+				   <h3><i class="fa fa-phone"></i>Phone Number</h3>
+				   <p>
+				   	Mobile: (000) 777 0100<br>
+				   </p>
+
+			   </div>	 
+
+			   <div class="columns end">
+
+				   <h3><i class="fa fa-envelope"></i>Email</h3>
+				   <p>lemon@lemon.com<br>
+				   </p>
+
+			   </div>          	
+
+		 	</div> <!-- end contact-details -->		 
+		 	<div class="row"> 
+<div class="twelve columns">&nbsp</div><div class="twelve columns">&nbsp</div><div class="twelve columns">&nbsp</div><div class="twelve columns">&nbsp</div>
+<div class="twelve columns">&nbsp</div><div class="twelve columns">&nbsp</div><div class="twelve columns">&nbsp</div><div class="twelve columns">&nbsp</div>
+</div>
+		</div> <!-- end contacts -->
+
+	</section> <!-- end location section -->
+
+   
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.placeholder.js"></script>
+   <script src="js/backstretch.js"></script>  
+   <script src="js/init.js"></script>
+</div>
+</body>
+
+</html>
