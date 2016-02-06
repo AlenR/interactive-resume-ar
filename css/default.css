@@ -1,28 +1,7 @@
 /*
 =====================================================================
-*   Zoon v1.0 Default Stylesheet
-*   url: styleshout.com
-*   06-07-2014
+*  Interactive Resume Alen Rahmanovic
 =====================================================================
-
-TOC:
-a. Webfonts and Icon fonts
-b. Preloader
-c. Reset
-d. Default Styles
-   1. Basic
-   2. Typography
-   3. Links
-   4. Media
-   5. Buttons
-   6. Forms
-d. Grid
-e. Others
-   1. Clearing
-   2. Misc
-
-=====================================================================  */
-
 
 /* ------------------------------------------------------------------ */
 /* a. Webfonts and Icon fonts
@@ -770,7 +749,7 @@ properly.
 	   float: none;
 	   margin-left: 0;
 	   margin-right: 0;
-      padding: 0 30px;
+      padding: 0 21px;
    }
    .row .row { width: auto; max-width: none; margin: 0 -30px; }
 

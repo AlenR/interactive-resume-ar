@@ -31,8 +31,6 @@ jQuery(document).ready(function($) {
   	var nav_wrap = $('nav#nav-wrap')
   	var nav = $("ul#nav");  
 
-  	/* id JS is enabled, remove the two a.menu-btns 
-  	and dynamically prepend a.toggle-btn to #nav-wrap */
   	nav_wrap.find('a.menu-btn').remove(); 
   	nav_wrap.prepend(toggle_button); 
 
@@ -50,14 +48,6 @@ jQuery(document).ready(function($) {
   	$('ul#nav li a').on("click", function(){      
    	if (nav.hasClass('mobile')) nav.fadeOut('fast');      
   	});
-
-
-/*----------------------------------------------------*/
-/* Backstretch Settings
------------------------------------------------------- */
-
-	//$("#intro").backstretch("images/header-background.jpg");
-
 
 /*----------------------------------------------------*/
 /*	Back To Top Button
@@ -83,7 +73,6 @@ jQuery(document).ready(function($) {
 /*  Placeholder Plugin Settings
 ------------------------------------------------------ */  	 
 	$('input, textarea').placeholder()
-
 
 /*----------------------------------------------------*/
 /* FitText Settings
@@ -137,7 +126,6 @@ jQuery(document).ready(function($) {
 		offset: '35%'
 
 	});
-
 
 /*----------------------------------------------------*/
 /*	Make sure that #intro height is

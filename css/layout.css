@@ -1,19 +1,7 @@
 /*
 =====================================================================
-*   Zoon v1.0 Layout Stylesheet
-*   url: styleshout.com
-*   06-07-2014
+*    Interactive Resume Alen Rahmanovic
 =====================================================================
-
-   TOC:
-   a. General Styles
-   b. Intro Section
-   c. About Section
-   d. Location Section
-   e. Footer
-
-===================================================================== */
-
 /* ------------------------------------------------------------------ */
 /* a. General Styles
 /* ------------------------------------------------------------------ */
@@ -421,8 +409,12 @@ ul#nav li.current a { color: #1E732D; }
    padding-bottom: 72px;     
    overflow: hidden; 
 }
-#skill a, #skill a:visited  { color: #0C3012; }
-#skill a:hover, #skill a:focus { color: #fff; }
+#skill a, #skill a:visited  {     
+  color: white;
+    background-color: #22A39F;
+    padding: 20px;
+    border-radius: 10px; }
+#skill a:hover, #skill a:focus { background-color: #117976; }
 
 .section-header,
 .section-content {
@@ -461,7 +453,7 @@ ul#nav li.current a { color: #1E732D; }
 }
 
 #skill .starsAndSkills{
-  font-size: 20px;
+  font-size: 16px;
 }
 #skill .test{
   margin:0;
@@ -530,7 +522,7 @@ ul#nav li.current a { color: #1E732D; }
 #location .contacts .row .columns {	width: 33.33333%; }
 #location .contacts .row .end { float: left; }
 #location .contacts h3 {
-   font: 24px/50px 'montserrat-bold', sans-serif;
+   font: 20px/50px 'montserrat-bold', sans-serif;
    color: #fff;
    text-transform: uppercase;
    letter-spacing: 1.5px;   
@@ -539,12 +531,12 @@ ul#nav li.current a { color: #1E732D; }
 #location .contacts p {	
    line-height: 30px;
    font-family: 'montserrat-regular', sans-serif;
-   font-size: 18px;
+   font-size: 16px;
    color: #6C6C6C;
 }
 #location .contacts h3 i {	margin-right: 8px; }
 #location h1 {
-   font: 30px/36px 'montserrat-bold', sans-serif;
+   font: 20px/36px 'montserrat-bold', sans-serif;
    color: #fff;
    margin-bottom: 12px;
 }

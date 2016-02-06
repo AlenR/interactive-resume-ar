@@ -5,10 +5,6 @@ app.controller('Resume',
         function ($scope, $rootScope, UserModel, $interval, $timeout) {
     
      $scope.UserModel = UserModel;
-
-     
-         
-
              $scope.link = function (number) {
                 if(number === 1){
                         window.open(UserModel.cape);
@@ -17,35 +13,36 @@ app.controller('Resume',
                         window.open(UserModel.like);
                     }
                     };
-$scope.data = $("#appendStars").text();
-console.log($scope.data );
-                    $scope.$watch(function () {
-            return $scope.data;
-        }, function() {
-        var stars = "";
-   if($scope.data == 1){
-                        stars = '<span class="five columns starsAndSkills" ><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i></span>';
-                        $("#appendStars").append(stars);
-                        }
-                        else if($scope.data == 2){
-                        stars = '<span  class="five columns starsAndSkills" ><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i></span>';
-                        $("#appendStars").append(stars);
-                        }
-                        else if($scope.data == 3){
-                        stars = '<span  class="five columns starsAndSkills" ><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i></span>';
-                        $("#appendStars").append(stars);
-                        }
-                        else if($scope.data == 4){
-                        stars = '<span  class="five columns starsAndSkills" ><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i></span>';
-                        $("#appendStars").append(stars);
-                        }
-                        else if($scope.data == 5){
-                        stars = '<span  class="five columns starsAndSkills" ><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i></span>';
-                        
-                        $("#appendStars").append(stars);}
-    });
 }]);
 
+
+//Stars templates
+app.directive('setFiveStars', function(){
+    return {
+        template: '<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i>'
+   };
+});
+app.directive('setFourStars', function(){
+    return {
+        template: '<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i>'
+   };
+});
+app.directive('setThreeStars', function(){
+    return {
+        template: '<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i>'
+   };
+});
+app.directive('setTwoStars', function(){
+    return {
+        template: '<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i>'
+   };
+});
+app.directive('setOneStars', function(){
+    return {
+        template: '<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i>'
+   };
+});
+//End of star templates
 app.factory('UserModel', function () {
     
         var data = {
@@ -53,9 +50,9 @@ app.factory('UserModel', function () {
     //Profile
     profileTitle:'Software Developer',
     profileName:'Alen Rahmanovic',
-    profileAge: 25,
+    profileAge: 26,
     profileLocation: 'Tuzla, Bosnia and Herzegovina',
-    profileAbout:'I am a Software Developer for about 2 years. It includes Front End, Back End and QA. At the same time I am working on two jobs and my main occupation is developing web applications. Also very comunicative and team player, but also able to work indenpendetly.',
+    profileAbout:'I am a Software Developer for about 2 years. It includes Front End, Back End and QA. My main occupation is developing web applications. Also very comunicative and team player, but also able to work indenpendetly.',
 
     profileImage: 'images/me.jpg',
     //Education
@@ -64,7 +61,7 @@ app.factory('UserModel', function () {
          date: 'Sep 2008 - Dec 2013',
          school: 'Faculty of Electrical Engeneering',
          diploma: 'Bachelor of Science in Electrical Engeneering',
-         description: 'Lorem Ipsum',
+         description: 'The education on Faculty of Electrical Engineering was based on wide aspect of subjects like math, physic, electricity, electronics, automatics and robotics area, and information technologies. During four years of my education in this school, I obtained programming skills, math skills, robotics and electronic skills. The education here is equal to 250 ETC.   ',
          city: 'Tuzla',
          web: 'http://www.fe.untz.ba/' 
     },
@@ -72,7 +69,7 @@ app.factory('UserModel', function () {
          date: 'Sep 2004 - May 2008',
          school: 'Gymnasium "Mesa Selimovic"',
          diploma: 'Highschool Diploma',
-         description: 'Lorem Ipsum',
+         description: 'Gymnasium provided me general education that includes mathematical-scientific education, modern language, classical languages, economical and social-scientific education. There was a wide aspect of subjects like English, Bosnian, Latin and German language, mathematics, informatics, physics, chemistry, biology, geography, art, music, history, philosophy, social sciences. As a result this school provided me general knowledge in all these subjects. ',
          city: 'Tuzla',
          web: 'http://www.gmstz.stud.ba/' 
     }],
@@ -83,7 +80,7 @@ app.factory('UserModel', function () {
          date: 'Jan 2014 - present',
          company: 'Cape Ann Enterprises, Boston, USA',
          title: 'Software Developer',
-         description: 'Lorem Ipsum',
+         description: 'I am working at Cape Ann Enterprises for more than two years. I am working as a Software developer, and from the beginning I found myself best with Front-End development, especially with AngularJs. During these two years, I have also worked on Back-End and testing, then, C, C++, PHP and Python, where I have average skills and of course I have worked with a lot of different tools',
          city: 'Tuzla',
          web: 'http://capeannenterprises.com/' 
     },
@@ -91,15 +88,15 @@ app.factory('UserModel', function () {
          date: 'Aug 2014 - present',
          company: 'Like Rock, Tampa, USA',
          title: 'Software Developer (outsourcing)',
-         description: 'Lorem Ipsum',
+         description: 'Financial reasons made me to find one more job, so I am working as outsourcing web developer for Like Rock for about year and half. Developing web applications in PHP, resolving different issues on existing web applications, both Front-End and Back-End development, all of this are description of my contributions for Like Rock so far.',
          city: 'Tuzla',
          web: 'http://www.likerock.com/'
     },
     {
          date: 'Jun 2013 - Sep 2013',
          company: 'BH Telecom, Tuzla, BiH',
-         title: 'Practice in telecomunications',
-         description: 'Lorem Ipsum',
+         title: 'Internship',
+         description: 'During last year of my studies on Faculty of Electrical Engineering I got internship with duration of three months in BH-Telecom in Tuzla, and that was my first work experience. Setup and installation of routers, modems, phones and internet, and communicating with customers was my main obligation. ',
          city: 'Tuzla',
          web: 'http://www.bhtelecom.ba/'
     }],
@@ -250,32 +247,14 @@ app.factory('UserModel', function () {
         skill:'German',
         skillStar:'2'
     }],
-
-    //contact
     contactSkype:'alen.rahmanovic',
     contactEmail:'alen.rahmanovic.zd@gmail.com',
-    contactPhone:'00387 61 684 125'
+    contactPhone:'-',
+
+    git:'https://github.com/AlenR/interactive-resume-ar'
     
 }
     return data;
 });
 
-app.factory('Personal', function () {
-    return {
-        options:[{element: "FIRST NAME:"},{element: "LAST NAME:"},{element: "DATE OF BIRTH:"},{element: "PLACE OF BIRTH:"},{element: "MARITIAL STATUS:"},{element: "ADDRESS:"}],
-        values:[{element: "Alen"},{element: "Rahmanovic"},{element: "02.02.1990"},{element: "Zadar, Croatia"},{element: "Single"},{element: "Vukovarska 120, 75000 Tuzla,"},{element: "Bosnia and Herzegovina"}]
-    };
-});
-app.factory('Education', function () {
-    return {
-        options:[{element: "DATE:"},{element: "COLLEGE:"},{element: "DEGREE:"}],
-        values:[{element: "10/2008 - 12/2013"},{element: "University of Tuzla,"},{element: "Faculty of Electrical Engineering"},{element: "Bachelor of Science in Electrical Engineering"}]
-    };
-});
-app.factory('Contact', function () {
-    return {
-        options:[{element: "MOBILE:"},{element: "MAIL:"},{element: "ADDRESS:"}],
-        values:[{element: "00387616841253"},{element: "alen.rahmanovic.zd@gmail.com"},{element: "Vukovarska 120, 75000 Tuzla"},{element: "Bosnia and Herzegovina "}]
-    };
-});
 
