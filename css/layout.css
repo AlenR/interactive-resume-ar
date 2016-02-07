@@ -570,3 +570,31 @@ ul#nav li.current a { color: #1E732D; }
 }
 #go-top a:hover { background: #165622; }
 
+/* Go Down Button */
+#go-down {
+  position: fixed;
+  bottom: 30px;
+   right: 30px;  
+   text-align: center; 
+}
+#go-down a {
+  text-decoration: none;
+  border: 0 none;
+  display: block;
+  width: 48px;
+  height: 48px;
+  background-color: #303030;
+
+  -webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+
+   color: #fff;
+   font-size: 16px;
+   line-height: 48px;
+  border-radius: 3px;
+}
+#go-down a:hover { background: #165622; }
+
