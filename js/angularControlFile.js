@@ -1,52 +1,43 @@
 var app = angular.module('intResume',[]);
 
 app.controller('Resume',
-    ['$scope', '$rootScope','UserModel',"$interval",'$timeout',
-        function ($scope, $rootScope, UserModel, $interval, $timeout) {
+    ['$scope', '$rootScope','UserModel',
+        function ($scope, $rootScope, UserModel) {
     
      $scope.UserModel = UserModel;
-             $scope.link = function (number) {
-                if(number === 1){
-                        window.open(UserModel.cape);
-                    }
-                    else if(number === 2){
-                        window.open(UserModel.like);
-                    }
-                    };
+             
 }]);
-
 
 //Stars templates
 app.directive('setFiveStars', function(){
     return {
-        template: '<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i>'
+        template:'<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i>'
    };
 });
 app.directive('setFourStars', function(){
     return {
-        template: '<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i>'
+        template:'<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i>'
    };
 });
 app.directive('setThreeStars', function(){
     return {
-        template: '<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i>'
+        template:'<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i>'
    };
 });
 app.directive('setTwoStars', function(){
     return {
-        template: '<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i>'
+        template:'<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i>'
    };
 });
 app.directive('setOneStars', function(){
     return {
-        template: '<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i>'
+        template:'<i class="fa fa-star" style="color:#22A39F"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i><i class="fa fa-star" style="color:grey"></i>'
    };
 });
 //End of star templates
-app.factory('UserModel', function () {
-    
-        var data = {
 
+app.factory('UserModel', function () {
+        var data = {
     //Profile
     profileTitle:'Software Developer',
     profileName:'Alen Rahmanovic',
@@ -80,7 +71,7 @@ app.factory('UserModel', function () {
          date: 'Jan 2014 - present',
          company: 'Cape Ann Enterprises, Boston, USA',
          title: 'Software Developer',
-         description: 'I am working at Cape Ann Enterprises for more than two years. I am working as a Software developer, and from the beginning I found myself best with Front-End development, especially with AngularJs. During these two years, I have also worked on Back-End and testing, then, C, C++, PHP and Python, where I have average skills and of course I have worked with a lot of different tools',
+         description: 'I am working at Cape Ann Enterprises for more than two years. I am working as a Software developer, and from the beginning I found myself best with Front-End development, especially with AngularJs. During these two years, I have also worked on Back-End and testing, then, C, C++, PHP and Python, where I have average skills. Set of different tools is used on daily base.',
          city: 'Tuzla',
          web: 'http://capeannenterprises.com/' 
     },
