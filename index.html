@@ -26,6 +26,7 @@
 	<script src="js/modernizr.js"></script>
 	<script src="js/angular.min.js"></script>
 	<script src="js/angularControlFile.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
 
    <!-- Favicons
 	================================================== -->
@@ -43,9 +44,7 @@
 
 <!-- Intro Section -->
 <section id="intro">
-
 	<header class="row">	 
-
 		<nav id="nav-wrap" style="position:fixed;">
 
 			<a class="menu-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
@@ -271,7 +270,7 @@
 	</div>
 
 	<div class="twelve" style="text-align:center">
-		<p>The Project is build with AngularJs </p>
+		<p>The Project is build with AngularJs</p>
 		<a ng-href={{UserModel.git}} target="_blank">Check Project On GitHub</a>
 	</div>
 
@@ -296,15 +295,25 @@
 			</div> 
 			<div class="columns">
 				<h3><i class="fa fa-phone"></i>Phone Number</h3>
-				<p>------------------<br></p>
+				<p>00387 61 684 125<br></p>
 			</div>	 
 			<div class="columns end">
 				 <h3><i class="fa fa-envelope"></i>Email</h3>
 				 <p>alen.rahmanovic.zd@gmail.com<br></p>
 			</div>    
-		</div> 		 
+		</div> 	 
 	<div class="row"> 
-		<div class="twelve columns">&nbsp</div>
+		<div class="twelve visitors">Total Number Of Visitors: {{visitors}}</div>
+		<div class="twelve like">
+			<div id="like" class="two columns">
+				{{likes}} <i class="fa fa-thumbs-up" style="color:green;cursor:pointer" ng-click="like();"></i>
+			</div>
+			<div id="message" class="two columns">
+			</div>
+			<div id="dislike" class="two columns">
+				{{dislikes}} <i class="fa fa-thumbs-down" style="color:red;cursor:pointer" ng-click="dislike();"></i>
+			</div>
+		</div>
 		<div class="twelve columns">&nbsp</div>
 		<div class="twelve columns">&nbsp</div>
 		<div class="twelve columns">&nbsp</div>
@@ -318,8 +327,8 @@
 
    
 <!-- Java Script-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.js"><\/script>')</script>
 <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
 <script src="js/waypoints.js"></script>
 <script src="js/jquery.placeholder.js"></script>

@@ -1,11 +1,75 @@
 var app = angular.module('intResume',[]);
 
-app.controller('Resume',
-    ['$scope', '$rootScope','UserModel',
-        function ($scope, $rootScope, UserModel) {
+app.controller('Resume',['$scope', '$rootScope','UserModel','$interval','$timeout',function ($scope, $rootScope, UserModel,$interval,$timeout) {
     
-     $scope.UserModel = UserModel;
-             
+    var iResume = new Firebase("https://interactiveresume.firebaseio.com/");
+    $scope.UserModel = UserModel;
+    $scope.visitors = 0;
+    $scope.likes = 0;
+    $scope.dislikes = 0;
+    $scope.timesLiked = 0;
+    $scope.timesDisliked = 0;
+
+
+    var visit = new Firebase('https://interactiveresume.firebaseio.com/Visitors/countOfVisit');
+    var likes = new Firebase('https://interactiveresume.firebaseio.com/Grade/Like');
+    var dislikes = new Firebase('https://interactiveresume.firebaseio.com/Grade/Dislike');
+
+    iResume.on("value", function(snapshot) {
+        var data = snapshot.val();
+        $scope.intervalVisitors = $interval(function () {
+            $scope.visitors = data.Visitors.countOfVisit;
+            console.log(data.Visitors.countOfVisit);
+            $scope.likes = data.Grade.Like;
+            $scope.dislikes = data.Grade.Dislike;
+            if($scope.visitors === data.Visitors.countOfVisit && $scope.likes === data.Grade.Like && $scope.dislikes === data.Grade.Dislike){
+                $interval.cancel($scope.intervalVisitors);
+            }
+        }, 100);
+    });
+
+    $scope.like = function(){
+        if($scope.timesLiked < 1){
+            var smile = '<i class="fa fa-smile-o" style="color:green"></i> Thanks!!!';
+            $('#message').empty();
+            $('#message').append(smile);
+            $scope.timesLiked = 1;  
+            likes.transaction(function (current_value) {
+                return (current_value || 0) + 1;
+            }); 
+        }
+        else{
+            $("#like").preventDefault();
+        }     
+    };
+
+    $scope.dislike = function(){
+        if($scope.timesDisliked < 1){
+            var sad = '<i class="fa fa-frown-o" style="color:red"></i> Not fair!!!';
+            $('#message').empty();
+            $('#message').append(sad);
+            $scope.timesDisliked = 1;  
+            dislikes.transaction(function (current_value) {
+              return (current_value || 0) + 1;
+            });
+        }
+        else{
+            $("#dislike").preventDefault(); 
+        }    
+    };
+
+    $scope.visited = function(){
+         visit.transaction(function (current_value) {
+          return (current_value || 0) + 1;
+        });
+    };
+    
+    //If someone spent more that 10 seconds on page, count as visited :)
+    $timeout(function () {
+        $scope.visited();
+    },10000);   
+
+
 }]);
 
 //Stars templates
@@ -43,7 +107,7 @@ app.factory('UserModel', function () {
     profileName:'Alen Rahmanovic',
     profileAge: 26,
     profileLocation: 'Tuzla, Bosnia and Herzegovina',
-    profileAbout:'I am a Software Developer for about 2 years. It includes Front End, Back End and QA. My main occupation is developing web applications. Also very comunicative and team player, but also able to work indenpendetly.',
+    profileAbout:'Software Developer for more than 2 years, working mostly on Front End, Back End and QA of web applications, with a lot of experience in problem solving. Team player, but also able to work indenpendetly.',
 
     profileImage: 'images/me.jpg',
     //Education
@@ -71,7 +135,7 @@ app.factory('UserModel', function () {
          date: 'Jan 2014 - present',
          company: 'Cape Ann Enterprises, Boston, USA',
          title: 'Software Developer',
-         description: 'I am working at Cape Ann Enterprises for more than two years. I am working as a Software developer, and from the beginning I found myself best with Front-End development, especially with AngularJs. During these two years, I have also worked on Back-End and testing, then, C, C++, PHP and Python, where I have average skills. Set of different tools is used on daily base.',
+         description: 'I am working at Cape Ann Enterprises for more than two years. I am working as a Software developer, and from the beginning I found myself best with Front-End development, especially with AngularJs. During these two years, I have also worked on Back-End and testing, then, C, C++, PHP and Python, where I have average skills. Set of different tools is used on daily base. I have also visited New York and Boston in period from February to April 2015. Meetings with clients, training and starting new project in AngularJs were my main obligations there.',
          city: 'Tuzla',
          web: 'http://capeannenterprises.com/' 
     },
@@ -129,6 +193,10 @@ app.factory('UserModel', function () {
         skillStar:'3'
     },
     {
+        skill:'SQL',
+        skillStar:'3'
+    },
+    {
         skill:'MATLAB',
         skillStar:'3'
     },
@@ -147,11 +215,8 @@ app.factory('UserModel', function () {
     {
         skill:'C++',
         skillStar:'2'
-    },
-    {
-        skill:'JAVA',
-        skillStar:'1'
-    }],
+    }
+    ],
     toolSet:[
     {
         skill:'Git',
@@ -240,7 +305,7 @@ app.factory('UserModel', function () {
     }],
     contactSkype:'alen.rahmanovic',
     contactEmail:'alen.rahmanovic.zd@gmail.com',
-    contactPhone:'-',
+    contactPhone:'00387 61 684 125',
 
     git:'https://github.com/AlenR/interactive-resume-ar'
     

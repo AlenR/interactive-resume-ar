@@ -22,6 +22,11 @@ body { background: #0f0f0f; }
 	-webkit-background-size: cover !important; 
   background: url(../images/header-background.jpg) no-repeat center center; 
 }
+.like{
+  padding-top:20px;
+  font-size: 45px;
+  text-align: center;
+}
 
 /* Header 
 /* ------------------------------------------------------------------ */
@@ -398,6 +403,7 @@ ul#nav li.current a { color: #1E732D; }
    margin-bottom: 12px;
 }
 
+
 /* ------------------------------------------------------------------ */
 /* c. Skill Section
 /* ------------------------------------------------------------------ */
@@ -457,6 +463,9 @@ ul#nav li.current a { color: #1E732D; }
 }
 #skill .test{
   margin:0;
+}
+#skill span{
+  cursor: default;
 }
 
 
@@ -539,6 +548,11 @@ ul#nav li.current a { color: #1E732D; }
    font: 20px/36px 'montserrat-bold', sans-serif;
    color: #fff;
    margin-bottom: 12px;
+}
+#location .visitors{
+    text-align: center;
+    padding-top: 25px;
+    font-size: 25px;
 }
 
 /* Go To Top Button */
